@@ -12,7 +12,7 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator
+     <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
@@ -23,21 +23,17 @@ export default function App() {
             } else if (route.name === "Events") {
               iconName = "list";
             } else if (route.name === "Settings") {
-              iconName = focused ? "user" : "user-o";
+              iconName = "gear";
             }
 
             // You can return any component that you like here!
             return <FontAwesome name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: "red",
-          tabBarInactiveTintColor: "green"
+          tabBarInactiveTintColor: "gray"
         })}>
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen
-          name="Events"
-          options={{ headerShown: false }}
-          component={EventsScreen}
-        />
+        <Tab.Screen name="Events" component={EventsScreen} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
